@@ -2,7 +2,7 @@ import { useRef } from "react";
 import Card from "../ui/Card";
 import classes from "./NewMeetupForm.module.css";
 
-function NewMeetupForm() {
+function NewMeetupForm(props) {
 
   // create reference to the input elements of the form
   const titleInputRef = useRef();
@@ -26,7 +26,8 @@ function NewMeetupForm() {
       description: enteredDescription,
     }
 
-    console.log(meetupData);
+    // function that will allow to provide meetupData object to the parent
+    props.onAddMeetup(meetupData);
   }
 
   return(
